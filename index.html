@@ -50,8 +50,18 @@
     <div id="welcome-screen" class="flex flex-col items-center justify-center h-screen text-center bg-gray-100 p-6">
         <img src="https://signature.gruposilviosantos.com.br/signatures/sbt_logo17.png" alt="Logo SBT" class="h-32 w-32 md:h-40 md:w-40 mx-auto mb-8 rounded-full">
         <h1 class="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4">Bem-vindo(a) ao Time SBT!</h1>
-        <p class="text-lg md:text-xl text-gray-600 mb-8">Clique no botão para acessar os sistemas.</p>
-        <button onclick="showMainContent()" class="w-28 h-28 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-700 transition-colors shadow-lg">
+        <p class="text-lg md:text-xl text-gray-600 mb-8">Digite a senha para acessar os sistemas.</p>
+        
+        <input 
+            type="password" 
+            id="password-input" 
+            placeholder="Digite a senha..." 
+            class="w-full max-w-xs p-3 mb-4 rounded-lg text-center border-2 border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
+        >
+        
+        <p id="error-message" class="text-red-500 mb-4 hidden">Senha incorreta. Tente novamente.</p>
+
+        <button onclick="validateAndAccess()" class="w-28 h-28 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-700 transition-colors shadow-lg">
             Acessar
         </button>
     </div>
@@ -231,10 +241,21 @@
     </div>
 
     <script>
-        // Função para mostrar o conteúdo principal e ocultar a tela de boas-vindas
-        function showMainContent() {
-            document.getElementById('welcome-screen').classList.add('hidden');
-            document.getElementById('main-content').classList.remove('hidden');
+        // Função para validar a senha e mostrar o conteúdo principal
+        function validateAndAccess() {
+            const passwordInput = document.getElementById('password-input');
+            const password = passwordInput.value;
+            const errorMessage = document.getElementById('error-message');
+            
+            if (password === 'SBT') {
+                errorMessage.classList.add('hidden');
+                document.getElementById('welcome-screen').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+            } else {
+                errorMessage.classList.remove('hidden');
+                passwordInput.value = ''; // Limpa o campo de senha
+                passwordInput.focus(); // Coloca o cursor de volta no campo
+            }
         }
 
         // Função para filtrar os sistemas com base na busca do usuário
