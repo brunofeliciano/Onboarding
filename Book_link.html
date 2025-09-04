@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo(a) ao Time SBT!</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilo customizado para a fonte e cores */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0; /* Garante que não haja margens indesejadas */
+            padding: 0;
+        }
+        /* Cores inspiradas na identidade do SBT */
+        :root {
+            --sbt-blue: #0072c6;
+            --sbt-yellow: #ffcb05;
+            --sbt-dark-blue: #003b6f;
+            --sbt-gray: #f0f2f5;
+        }
+        .sbt-gradient {
+            background: linear-gradient(90deg, var(--sbt-blue), var(--sbt-dark-blue));
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(0, 114, 198, 0.3);
+            border-color: var(--sbt-blue);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sbt-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <img src="https://signature.gruposilviosantos.com.br/signatures/sbt_logo17.png" alt="Logo SBT" class="h-20 w-20 mx-auto mb-4 rounded-lg">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Bem-vindo(a) ao Time SBT!</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Seu guia rápido para acessar os principais sistemas e começar com o pé direito.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Search Bar -->
+        <div class="mb-12">
+            <div class="relative max-w-2xl mx-auto">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                    <i class="fas fa-search"></i>
+                </span>
+                <input 
+                    id="search-input"
+                    type="search" 
+                    placeholder="Buscar sistema..."
+                    class="w-full py-3 pl-12 pr-4 text-gray-700 bg-white border border-gray-300 rounded-full focus:outline-none search-input transition-shadow"
+                    onkeyup="filterSystems()"
+                >
+            </div>
+        </div>
+
+        <!-- System Cards Grid -->
+        <div id="systems-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            
+            <!-- Card Template -->
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="E-mail Corporativo Outlook Webmail Comunicação">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                            <i class="fas fa-envelope-open-text fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Outlook - E-mail Corporativo</h2>
+                    </div>
+                    <p class="text-gray-600">Comunicação oficial entre colaboradores via Outlook / Webmail.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://m365.cloud.microsoft/" target="_blank" class="block w-full text-center bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="Gestão de Documentos SharePoint OneDrive Arquivos">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                            <i class="fas fa-folder-tree fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Onedrive - Gestão de Documentos</h2>
+                    </div>
+                    <p class="text-gray-600">Armazenamento e compartilhamento de arquivos no SharePoint / OneDrive.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://onedrive.com/" target="_blank" class="block w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="RH Apdata Folha Ponto Benefícios Férias">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
+                            <i class="fas fa-id-card-alt fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Sistema de RH - Apdata</h2>
+                    </div>
+                    <p class="text-gray-600">Consulta de folha de ponto, benefícios, férias e dados pessoais.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://cliente.apdata.com.br/gss/" target="_blank" class="block w-full text-center bg-purple-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+            
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="Chamados Técnicos Topdesk Suporte TI">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-red-100 text-red-600 mr-4">
+                            <i class="fas fa-tools fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Topdesk - Chamados Técnicos</h2>
+                    </div>
+                    <p class="text-gray-600">Solicitação de suporte técnico para TI e outras áreas via Topdesk.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://portalchamadosgss.topdesk.net/" target="_blank" class="block w-full text-center bg-red-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+            
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="Intranet SBT Conecta Notícias Formulários">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
+                            <i class="fas fa-newspaper fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Conecta - Intranet SBT</h2>
+                    </div>
+                    <p class="text-gray-600">Notícias, formulários, menu do dia e comunicados internos.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://conecta.sbt.com.br/" target="_blank" class="block w-full text-center bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors">Acessar</a>
+                </div>
+            </div>
+
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="Extranet GSS Portal Políticas Código Conduta">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
+                            <i class="fas fa-landmark fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Portal GSS - Extranet</h2>
+                    </div>
+                    <p class="text-gray-600">Institucional, Políticas, Código de Conduta, Canal de ideias etc.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://gruposilviosantos.sharepoint.com/sites/portalgss/" target="_blank" class="block w-full text-center bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="Projuris Contratos Corporativos">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-pink-100 text-pink-600 mr-4">
+                            <i class="fas fa-file-signature fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Projuris – Contratos</h2>
+                    </div>
+                    <p class="text-gray-600">Sistema para controle e gestão de contratos corporativos.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="https://gss.projuris.com.br/projuris" target="_blank" class="block w-full text-center bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+
+           <!--
+            <div class="system-card bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 card-hover flex flex-col" data-name="ERP Oracle Compras Financeiro">
+                <div class="p-8 flex-grow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-full bg-teal-100 text-teal-600 mr-4">
+                            <i class="fas fa-coins fa-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">ERP - Oracle</h2>
+                    </div>
+                    <p class="text-gray-600">Sistema para ordens de compras e processos financeiros.</p>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <a href="http://csca1321.csc.gss:8003/OA_HTML/AppsLocalLogin.jsp?langCode=PTB" target="_blank" class="block w-full text-center bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">Acessar</a>
+                </div>
+            </div>
+            --> 
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center mt-12">
+            <i class="fas fa-box-open fa-3x text-gray-400 mb-4"></i>
+            <p class="text-xl text-gray-600">Nenhum sistema encontrado para sua busca.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold mb-2">Precisa de Ajuda?</h3>
+            <p class="text-gray-300 mb-4">Para obter auxílio no acesso aos sistemas, registre um chamado no Topdesk.</p>
+            <a href="https://portalchamadosgss.topdesk.net/" target="_blank" class="bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition-colors">Abrir Chamado</a>
+            <p class="text-sm text-gray-500 mt-8">&copy; 2025 SBT - Sistema Brasileiro de Televisão. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função para filtrar os sistemas com base na busca do usuário
+        function filterSystems() {
+            const input = document.getElementById('search-input');
+            const filter = input.value.toLowerCase();
+            const grid = document.getElementById('systems-grid');
+            const cards = grid.getElementsByClassName('system-card');
+            const noResults = document.getElementById('no-results');
+            let found = false;
+
+            for (let i = 0; i < cards.length; i++) {
+                let cardName = cards[i].getAttribute('data-name');
+                if (cardName.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                    found = true;
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+
+            // Mostra ou esconde a mensagem de "nenhum resultado"
+            if (found) {
+                noResults.classList.add('hidden');
+            } else {
+                noResults.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>
