@@ -247,7 +247,12 @@
             const password = passwordInput.value;
             const errorMessage = document.getElementById('error-message');
             
-            if (password === 'SBT') {
+            // Lógica para a senha dinâmica
+            const today = new Date();
+            const month = (today.getMonth() + 1).toString().padStart(2, '0');
+            const requiredPassword = month + 'SBT';
+            
+            if (password === requiredPassword) {
                 errorMessage.classList.add('hidden');
                 document.getElementById('welcome-screen').classList.add('hidden');
                 document.getElementById('main-content').classList.remove('hidden');
